@@ -70,9 +70,9 @@ stages:
               appType: webAppLinux
               appName: $(webAppName)
               package: '$(System.ArtifactsDirectory)/drop/**/target/*.?(war|jar)'
-           - task: Bash@3
-             inputs:
+          - task: Bash@3
+            inputs:
                targetType: 'inline'
-                script: |
-                       echo $(azureSubscription)
-                       echo $(vmImageName)
+               script: |
+                 echo $(azureSubscription)
+                 echo $(vmImageName)
