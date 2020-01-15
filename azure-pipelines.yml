@@ -9,7 +9,7 @@ trigger:
 variables:
 
   # Azure Resource Manager connection created during pipeline creation
-  azureSubscription: '4c8e7db9-7472-409e-8b5a-49c63cab73e1'
+  azureSubscription: '4b0911a0-929b-4715-944b-c03745165b3a'
   
   # Web app name
   webAppName: 'java-spring-boot'
@@ -70,3 +70,9 @@ stages:
               appType: webAppLinux
               appName: $(webAppName)
               package: '$(System.ArtifactsDirectory)/drop/**/target/*.?(war|jar)'
+           - task: Bash@3
+             inputs:
+               targetType: 'inline'
+                script: |
+                       echo $(azureSubscription)
+                       echo $(vmImageName)
